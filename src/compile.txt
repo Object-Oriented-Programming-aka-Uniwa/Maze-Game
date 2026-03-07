@@ -1,0 +1,1 @@
+g++ main.cpp Maze.cpp Character.cpp Petri.cpp -lncurses -o game
