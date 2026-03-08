@@ -2,40 +2,42 @@
 #include <fstream>
 #include <ncurses.h>
 
-bool Maze::loadFromFile(std::string filename)
+bool Maze::loadFromFile(const std::string &filename)
 {
     std::ifstream file(filename);
+    if (!file.is_open()) return false;
+
     std::string line;
-    
-    if (!file) return false;
-
     while (getline(file, line))
-        grid.push_back(line);  
-    
-    rows = grid.size();
-    cols = grid[0].size();
+    {
+        grid.push_back(line);
+    }
 
+    height = grid.size();
+    width = grid[0].size();
     return true;
+}
+
+bool Maze::isWalkable(int x, int y) const
+{
+    if (y < 0 || y >= height || x < 0 || x >= width) return false;
+    return grid[y][x] == '.';
 }
 
 void Maze::draw()
 {
-    for (int i = 0; i < rows; i++)
-        for (int j = 0; j < cols; j++)
-            mvaddch(i, j, grid[i][j]);
+    for (int i = 0; i < height; ++i)
+    {
+        mvprintw(i, 0, grid[i].c_str());
+    }
 }
 
-bool Maze::isWall(int y, int x)
+void Maze::getRandomFreeSpace(int &outX, int &outY)
 {
-    return grid[y][x] == '*';
-}
-
-int Maze::getRows()
-{
-    return rows;
-}
-
-int Maze::getCols()
-{
-    return cols;
+    do
+    {
+        outX = std::rand() % width;
+        outY = std::rand() % height;
+    } 
+    while (!isWalkable(outX, outY));
 }

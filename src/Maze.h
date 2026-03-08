@@ -1,24 +1,21 @@
 #ifndef MAZE_H
 #define MAZE_H
 
+#include "GameObject.h"
 #include <vector>
 #include <string>
 
-class Maze
+class Maze 
 {
     private:
         std::vector<std::string> grid;
-        int rows;
-        int cols;
+        int height, width;
     
     public:
-        bool loadFromFile(std::string filename);
+        bool loadFromFile(const std::string &filename);
+        bool isWalkable(int x, int y) const;
+        void getRandomFreeSpace(int &outX, int &outY);
         void draw();
-
-        bool isWall(int y, int x);
-
-        int getRows();
-        int getCols();
 };
 
 #endif
