@@ -75,3 +75,52 @@
 # INSTALL
 
 ## Babis Poteridis and the Magic Notebook Searching
+
+This guide explains how to set up, build, and run the project on your local machine.
+
+---
+
+## 1. Technical Specifications
+
+- **Language:** C++11  
+- **Library:** `ncurses` for terminal graphics and keyboard input  
+- **Programming Paradigm:** Object-Oriented Programming  
+  - Inheritance  
+  - Polymorphism  
+  - Composition  
+- **Input:** Real-time keyboard interaction
+
+---
+
+## 2. How to Build and Run
+
+### 2.1 Prerequisites
+
+Make sure the following tools are installed:
+
+- Linux environment (or WSL / Dev-C++ with ncurses support)
+- `g++` compiler
+- `make`
+- `libncurses5-dev`
+
+Example installation (Ubuntu/Debian):
+
+```bash
+sudo apt-get install g++ make libncurses5-dev
+```
+
+---
+
+## 3. Compilation
+Navigate to the project directory and run:
+```bash
+make
+```
+
+---
+
+## 4. Execution
+Run the program by providing a maze file as an argument:
+```bash
+./babis_game maps/quadrants.txt
+```
