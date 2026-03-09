@@ -109,6 +109,15 @@ Example installation (Ubuntu/Debian):
 sudo apt-get install g++ make libncurses5-dev
 ```
 
+### 2.2 Clone the Repository
+
+Open your terminal or command prompt and run:
+
+```bash
+git clone https://github.com/Object-Oriented-Programming-aka-Uniwa/Maze-Game.git
+cd Maze-Game/src
+```
+
 ---
 
 ## 3. Compilation
